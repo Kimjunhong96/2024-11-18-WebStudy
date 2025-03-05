@@ -32,7 +32,9 @@ $(function(){
 			data:{"type":type},
 			success:function(result)
 			{
+			console.log("서버 응답:", result);
 				//alert(result)
+				if (!result) throw new Error("서버에서 빈 응답을 보냈습니다.");
 				let json=JSON.parse(result)
 				//$('.print').text(result)
 				let html='';
@@ -45,6 +47,7 @@ $(function(){
 					     +'</div>'
 				})  
 				$('.print').html(html)
+				
 			}
 			
 		})

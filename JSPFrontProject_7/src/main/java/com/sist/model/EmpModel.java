@@ -76,6 +76,8 @@ public class EmpModel {
 	  // => 맛집 예약 
 	  List<FoodVO> list=EmpDAO.foodTypeListData(type);
 	  // list => 자바스크립트로 전송 
+	  try
+	  {
 	  JSONArray arr=new JSONArray(); //[] => {}(20) 
 	  // 자바스크립트에서 자바 인식못한다 
 	  for(FoodVO vo:list)
@@ -88,8 +90,6 @@ public class EmpModel {
 		  arr.add(obj);
 	  }
 	  // 전송 
-	  try
-	  {
 		  resposne.setContentType("text/plain;charset=UTF-8");
 		  /*
 		   *   <html>
@@ -102,6 +102,8 @@ public class EmpModel {
 		  // 요청한 브라우저 
 		  out.write(arr.toJSONString());
 		  // @RestController
-	  }catch(Exception ex) {}
+	  }catch(Exception ex) {
+		  ex.printStackTrace();
+	  }
   }
 }
