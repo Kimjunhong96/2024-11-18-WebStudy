@@ -10,6 +10,7 @@
 	 -->
 	<typeAliases>
 	  <!-- VO 등록 -->
+	  <typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
 	</typeAliases>
 	
    <environments default="development">
@@ -40,6 +41,7 @@
   
   <!-- SQL문장 -->
   <mappers>
+    <mapper resource="com/sist/mapper/food-mapper.xml"/>
     <!-- 
     		동적 쿼리 
     		<if> <forEach> <where> <set>  = mapper에서 작업 

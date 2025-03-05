@@ -26,25 +26,22 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
+                         <c:if test="${sessionScope.id==null }">
                             <div class="login">
-                                <a href="register.html">Sing in</a>
+                                <a href="register.html">로그인</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">Sing up</a>
+                                <a href="register.html">회원가입</a>
                             </div>
+                            </c:if>
+                            <c:if test="${sessionScope.id!=null }">
+                            <div class="login">
+                            	${sessionScope.name}(${sessionScope.admin=='y'?"관리자":"일반사용자" }) 님 로그인 되었습니다&nbsp;&nbsp;
+                                <a href="register.html">로그아웃</a>
+                            </div>
+                            </c:if>
                         </div>
-                        <!-- Search Button Area -->
-                        <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
-                        <!-- Search Form -->
-                        <div class="search-hidden-form">
-                            <form action="#" method="get">
-                                <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
-                                <input type="submit" value="" class="d-none">
-                                <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
