@@ -55,4 +55,20 @@ public class FoodDAO {
 		session.close();
 		return total;
 	}
+	
+	public static FoodVO foodDetailData(int fno) {
+		SqlSession session=ssf.openSession(true);
+		session.update("foodHitIncrement",fno);
+		//session.commit();
+		FoodVO vo=session.selectOne("foodDetailData",fno);
+		session.close();
+		return vo;
+	}
+	
+	public static FoodVO foodCookieData(int fno) {
+		SqlSession session=ssf.openSession(true);
+		FoodVO vo=session.selectOne("foodDetailData",fno);
+		session.close();
+		return vo;
+	}
 }
