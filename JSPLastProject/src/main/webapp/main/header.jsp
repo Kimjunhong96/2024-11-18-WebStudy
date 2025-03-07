@@ -105,9 +105,9 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">레시피</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">레시피목록</a>
-                                        <a class="dropdown-item" href="archive.html">레시피검색</a>
-                                        <a class="dropdown-item" href="single.html">쉐프</a>
+                                        <a class="dropdown-item" href="../recipe/recipe_list.do">레시피목록</a>
+                                        <a class="dropdown-item" href="../recipe/recipe_find.do">레시피검색</a>
+                                        <a class="dropdown-item" href="../recipe/chef_list.do">쉐프</a>
                                         <a class="dropdown-item" href="single.html">레시피등록</a>
                                    </div>
                                  

@@ -13,7 +13,7 @@
 
     <!-- Title -->
     <title>Recipe & Food & Travel</title>
-
+	<%= request.getAttribute("main_jsp") %>
     <!-- Favicon -->
     <link rel="icon" href="../img/core-img/favicon.ico">
 

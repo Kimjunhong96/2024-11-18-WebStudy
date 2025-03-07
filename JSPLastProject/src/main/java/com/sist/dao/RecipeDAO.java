@@ -79,6 +79,23 @@ public class RecipeDAO {
 		return total;
 	}
 	
+	public static List<RecipeVO> recipeListData(Map map){
+		List<RecipeVO> list=null;
+		SqlSession session=null;
+		try
+		{
+			session=ssf.openSession();
+			list=session.selectList("recipeListData", map);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if(session!=null)
+				session.close();
+		}
+		
+		return list;
+	}
 	
 	public static List<ChefVO> recipeChefListData(Map map){
 		SqlSession session=ssf.openSession();
