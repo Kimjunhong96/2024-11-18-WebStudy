@@ -109,4 +109,11 @@ public class RecipeDAO {
 		session.close();
 		return total;
 	}
+	 public static List<RecipeVO> recipeFindData(Map map)
+	  {
+		  SqlSession session=ssf.openSession();
+		  List<RecipeVO> list=session.selectList("recipeFindData",map);
+		  session.close();
+		  return list;
+	  }
 }

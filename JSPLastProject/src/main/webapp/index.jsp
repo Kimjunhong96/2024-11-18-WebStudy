@@ -7,6 +7,8 @@
 	  | all_reply , all_like , all_jjim
 	  
 	  ===================
+	  
+	  모델 mapper DAO jsp 순서로 전달이 되는거다
  --%>
 <!DOCTYPE html>
 <html>

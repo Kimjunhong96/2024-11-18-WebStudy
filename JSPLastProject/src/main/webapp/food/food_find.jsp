@@ -1,7 +1,9 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%--
+   String
+   StringBuffer
+ --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,73 +11,53 @@
 <title>Insert title here</title>
 <style type="text/css">
 a:hover{
-	cursor: pointer;
+  cursor: pointer;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
-let curpage=1
-let totalpage=0
-let startPage=0
-let endPage=0
+
 $(function(){
 	$('#ss').val('마포')
+	commons(1)
+	
+	$('#findBtn').click(function(){
+		commons(1)
+	})
+	$('#ss').keydown(function(e){
+		if(e.keyCode==13)
+		{
+			commons(1)
+		}
+	})
+})
+function commons(page)
+{
 	let fd=$('#fd').val()
 	let ss=$('#ss').val()
 	$.ajax({
 		type:'post',
 		url:'../food/food_find_ajax.do',
-		data:{"fd":fd,"ss":ss,"page":1},
+		data:{"fd":fd,"ss":ss,"page":page},
 		success:function(result){
 			//$('#view').text(result)
 		  	let json=JSON.parse(result)
-		  	//console.log(json)
-		  	/*
-		  	  json=[{curpage},{},{}...] 12
-		  	*/
-		  	/* curpage=json[0].curpage
-		  	totalpage=json[0].totalpage
-		  	startPage=json[0].startPage
-		  	endPage=json[0].endPage */
+		  	
 		  	jsonView(json)
 		}
 	})
-	
-	$('#findBtn').click(function(){
-		let fd=$('#fd').val()
-		let ss=$('#ss').val()
-		$.ajax({
-			type:'post',
-			url:'../food/food_find_ajax.do',
-			data:{"fd":fd,"ss":ss,"page":1},
-			success:function(result){
-				//$('#view').text(result)
-			  	let json=JSON.parse(result)
-			  	jsonView(json)
-			}
-		})
-	})
-	$('#ss').keydown(function(e){
-		if(e.keyCode==13)
-		{
-			let fd=$('#fd').val()
-			let ss=$('#ss').val()
-			$.ajax({
-				type:'post',
-				url:'../food/food_find_ajax.do',
-				data:{"fd":fd,"ss":ss,"page":1},
-				success:function(result){
-					//$('#view').text(result)
-				  	let json=JSON.parse(result)
-				  	console.log(json)
-				  	jsonView(json)
-				}
-			})
-		}
-	})
-})
-function commons(page){
-	
+}
+function prev(page)
+{
+	commons(page)
+}
+function next(page)
+{
+	commons(page)
+}
+function pageChange(page)
+{
+	commons(page)
 }
 function jsonView(json)
 {
@@ -183,7 +165,7 @@ function jsonView(json)
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                             <select id="fd" class="input-sm">
+                             <select id="fd" class="form-control-sm">
                                <option value="name">업체명</option>
                                
               
@@ -191,7 +173,7 @@ function jsonView(json)
                                <option value="theme">테마</option>
                                <option value="address" selected>주소</option>
                              </select>
-                             <input type=text size=15 id="ss" class="input-sm">
+                             <input type=text size=15 id="ss" class="form-control-sm">
                              <input type=button value="검색" class="btn-sm btn-primary" id="findBtn">
                              
                              
