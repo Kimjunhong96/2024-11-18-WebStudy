@@ -19,6 +19,20 @@ public class JjimModel {
 		String rno=request.getParameter("rno");
 		String type=request.getParameter("type");
 		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		JjimVO vo=new JjimVO();
+		vo.setId(id);
+		vo.setRno(Integer.parseInt(rno));
+		vo.setType(Integer.parseInt(type));
+		JjimDAO.jjimInsert(vo);
+		
+		return "redirect:"+urls[Integer.parseInt(type)]+rno;
+	}
+	@RequestMapping("jjim/jjim_cancel.do")
+	public String jjim_cancel(HttpServletRequest request,HttpServletResponse response) {
+		String rno=request.getParameter("rno");
+		String jno=request.getParameter("jno");
 		
 		return "redirect:"+urls[Integer.parseInt(type)]+rno;
 	}

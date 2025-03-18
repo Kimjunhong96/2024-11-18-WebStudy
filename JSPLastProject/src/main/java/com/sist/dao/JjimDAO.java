@@ -32,4 +32,58 @@ public class JjimDAO {
 		}
 		return count;
 	}
+/*
+ *  	<insert id="jjimInsert" parameterType="JjimVO">
+	 	INSERT INTO all_jjim VALUeS(
+	 		aj_jno_seq.nextval,#{rno},#{type},#{id},SYSDATE
+	 	)
+	 </insert>
+ */
+	public static void jjimInsert(JjimVO vo) {
+		SqlSession session=null;
+		try {
+			session=ssf.openSession();
+			session.insert("jjimInsert",vo);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+	/*
+	 * 
+	 */
+	public static List<JjimVO> jjimFoodListData(String id){
+		SqlSession session=null;
+		List<JjimVO>lsit=new ArrayList<JjimVO>();
+		try {
+			session=ssf.openSession();
+			list=session.selectOne("jjimFoodListData",id);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if(session!=null)
+				session.close();
+		}
+		return list;
+	}
+	/*
+	 *  <delete id="jjimDelete" parameterType="int">
+		DELETE FROM all_jjim
+		WHERE jno=#{jno}
+	</delete>
+	 */
+	public static int jjimDelete(int jno) {
+		SqlSession session=null;
+		try {
+			session=ssf.openSession();
+			session=session.selectOne("jjimDelete",jno);
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		finally {
+			if(session!=null)
+				session.close();
+		}
+		return session;
+	}
 }

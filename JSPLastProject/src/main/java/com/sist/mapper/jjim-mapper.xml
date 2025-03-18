@@ -28,4 +28,8 @@
 	 	AND id=#{id} AND type=1
 	 	ORDER BY jno DESC
 	 </select>
+	<delete id="jjimDelete" parameterType="int">
+		DELETE FROM all_jjim
+		WHERE jno=#{jno}
+	</delete>
 </mapper>

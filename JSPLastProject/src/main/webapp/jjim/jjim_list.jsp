@@ -25,6 +25,7 @@
 	      <td class="text-center">
 	      	<input type=button class="btn btn-danger btn-xs"
 	      		value="상세보기">
+	      	<a href="../jjim/jjim_cancel.do?jno=${vo.jno }&rno=${vo.jno}" class="btn btn-primary btn-xs">취소</a>
 	      </td>
 	    </tr>
 	  </c:forEach>
