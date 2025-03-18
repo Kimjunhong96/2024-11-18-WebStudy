@@ -142,7 +142,7 @@ $(function(){
           <a href="#" 
              class="btn btn-sm btn-success">좋아요</a>
           <c:if test="${rcount==0 }">
-          <a href="../jjim/jjim_insert.do?fno=${vo.fno }&type=1" 
+          <a href="../jjim/jjim_insert.do?rno=${vo.fno }&type=1" 
              class="btn btn-sm btn-info">찜하기</a>
           </c:if>
           <c:if test="${rcount!=0 }">
