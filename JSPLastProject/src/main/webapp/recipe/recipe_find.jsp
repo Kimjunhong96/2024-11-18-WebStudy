@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
@@ -15,7 +14,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>레시피 목록</h2>
+                        <h2>레시피 검색</h2>
                     </div>
                 </div>
             </div>
@@ -41,6 +40,14 @@
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row">
+            <form method=post action="../recipe/recipe_find.do">
+              <input type="checkbox" name="fs" value="T" checked>레시피명
+              <input type="checkbox" name="fs" value="C">쉐프명
+              <input type=text name="ss" size=15 class="form-control-sm">
+              <input type=submit value="검색" class="btn btn-sm btn-outline-danger">
+            </form>
+            </div>
+            <div class="row" style="margin-top: 20px">
 
                 <!-- Single Post -->
                 <c:forEach var="vo" items="${list }">
@@ -48,7 +55,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                          <a href="../recipe/recipe_detail.do?no=${vo.no}">
+                          <a href="#">
                             <img src="${vo.poster }" style="width:350px;height: 250px ">
                           </a>
                         </div>
@@ -81,7 +88,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="../recipe/recipe_detail.do?no=${vo.no}">
+                            <a href="#">
                                 <h4 class="post-headline">${vo.title }</h4>
                             </a>
                         </div>
@@ -89,7 +96,7 @@
                 </div>
                 </c:forEach>
                 
-                <div class="col-12">
+                <!-- <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">
                         <nav aria-label="#">
                             <ul class="pagination">
@@ -114,7 +121,7 @@
                             <p>Page ${curpage } of ${totalpage } results</p>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
             </div>
         </div>

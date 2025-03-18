@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
@@ -15,7 +14,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>레시피 목록</h2>
+                        <h2>&laquo;${chef }&raquo; 레시피</h2>
                     </div>
                 </div>
             </div>
@@ -95,17 +94,17 @@
                             <ul class="pagination">
                                <c:if test="${startPage>1 }">
                                  <li class="page-item">
-                                    <a class="page-link" href="../recipe/recipe_list.do?page=${startPage-1 }">이전 <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
+                                    <a class="page-link" href="../chef_make.do?no=${no}&page=${startPage-1 }">이전 <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
                                  </li>
                                 </c:if>
                                 
                                 <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                 <li class="page-item ${i==curpage?'active':'' }"><a class="page-link" href="../recipe/recipe_list.do?page=${i }">${i }</a></li>
+                                 <li class="page-item ${i==curpage?'active':'' }"><a class="page-link" href="../recipe/chef_make.do?no=${no}&page=${i }">${i }</a></li>
                                 </c:forEach>
                                 
                                 <c:if test="${endPage<totalpage }">
                                  <li class="page-item">
-                                    <a class="page-link" href="../recipe/recipe_list.do?page=${endPage+1 }">다음 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                                    <a class="page-link" href="../recipe/chef_make.do?no=${no}&page=${endPage+1 }">다음 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                                  </li>
                                 </c:if>
                             </ul>

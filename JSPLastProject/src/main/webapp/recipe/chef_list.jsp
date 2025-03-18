@@ -1,6 +1,7 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +27,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Archive Page</li>
+                            <li class="breadcrumb-item active" aria-current="page">food-list Page</li>
                         </ol>
                     </nav>
                 </div>
@@ -39,57 +40,60 @@
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row" style="width:800px;margin:0px auto">
-
-                <table class="table">
-                  <tr>
-                   <td>
-                    <%--
-                      	${request.getAttribute("list")}
-                     --%>
-                    <c:forEach var="vo" items="${list }">
-                     <table class="table">
-                      <tr>
+              <table class="table">
+               <tr>
+                <td>
+                  <%--
+                     <%= request.getAttribute("list")%>
+                   --%>
+                  <c:forEach var="vo" items="${list }">
+                    <table class="table">
+                     <tr>
                        <td width="25%" rowspan="2" class="text-center">
                         <div class="about-me-widget-thumb">
-                                <img src="${cvo.poster }" style="width: 150px; height: 250px; ">
-                            </div>
+                          <a href="../recipe/chef_make.do?no=${vo.no }">
+                           <img src="${vo.poster }" style="width: 100px;height: 100px">
+                          </a>
+                        </div>
                        </td>
                        <td colspan="4">
-                        <h4 style="color: orange;">${vo.chef }</h4>
+                        <h4 style="color: orange;">
+                         <a href="../recipe/chef_make.do?no=${vo.no }">${vo.chef }</a>
+                        </h4>
                        </td>
-                      </tr>
-                      <tr>
-                        <td class="text-center">
-                          <img src="../recipe/icon/m1.png">&nbsp;${vo.mem_cont1 }
-                        </td>
-                        <td class="text-center">
-                           <img src="../recipe/icon/m2.png">&nbsp;${vo.mem_cont3 }
-                        </td>
-                        <td class="text-center">
-                           <img src="../recipe/icon/m3.png">&nbsp;${vo.mem_cont7 }
-                        </td>
-                        <td class="text-center">
-                           <img src="../recipe/icon/m4.png">&nbsp;${vo.mem_cont2 }
-                        </td>
-                      </tr>
-                     </table>
-                    </c:forEach>
-                   </td>
-                  </tr>
-                </table>
-                <table class="table">
-                  <tr>
-                    <td class="text-center">
-                    <a href="../recipe/chef_list.do?page=${curpage>1?curpage-1:curpage }"class="btn btn-sm btn-danger">이전</a>
-                      ${curpage }
-                    <a href="../recipe/chef_list.do?page=${curpage<totalpage?curpage }"class="btn btn-sm btn-danger">다음</a>
-                    </td>
-                  </tr>
-                </table>
-
+                     </tr>
+                     <tr>
+                       <td class="text-center">
+                        <img src="../recipe/icon/m1.png">&nbsp;${vo.mem_cont1 }
+                       </td>
+                       <td class="text-center">
+                        <img src="../recipe/icon/m2.png">&nbsp;${vo.mem_cont3 }
+                       </td>
+                       <td class="text-center">
+                        <img src="../recipe/icon/m3.png">&nbsp;${vo.mem_cont7 }
+                       </td>
+                       <td class="text-center">
+                        <img src="../recipe/icon/m4.png">&nbsp;${vo.mem_cont2 }
+                       </td>
+                     </tr>
+                    </table>
+                  </c:forEach>
+                </td>
+               </tr>
+              </table>
+              <table class="table">
+               <tr>
+                 <td class="text-center">
+                  <a href="../recipe/chef_list.do?page=${curpage>1?curpage-1:curpage}" class="btn btn-sm btn-danger">이전</a>
+                     ${curpage } page / ${totalpage } pages
+                  <a href="../recipe/chef_list.do?page=${curpage<totalpage?curpage+1:curpage}" class="btn btn-sm btn-danger">다음</a>
+                 </td>
+               </tr>
+              </table>
             </div>
         </div>
     </section>
     <!-- ****** Archive Area End ****** -->
+
 </body>
 </html>
